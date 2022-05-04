@@ -1,8 +1,15 @@
 <!-- <app-outlets> </app-outlets> -->
-<!-- <ng-template cxOutletRef="SiteLogo"> <div>amazona</div> </ng-template>? -->
 
-<app-test-spartacus [value]="value" *ngIf="show"></app-test-spartacus>
+<!-- <app-test-spartacus [value]="value" *ngIf="show"></app-test-spartacus>
 
 <button (click)="changeValue()">value changed</button>
 <button (click)="toggle()">open/close</button>
+ -->
+
+<ng-template cxOutletRef="SiteLogo" cxOutletPos="after">
+  <h1 (click)="toggle()">amazona</h1>
+  <img src="../favicon.ico" alt="icon" />
+</ng-template>
+<ng-template cxOutletRef="header" let-model> </ng-template>
+
 <cx-storefront></cx-storefront>
