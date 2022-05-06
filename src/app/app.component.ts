@@ -17,10 +17,10 @@ export class AppComponent {
     private componenntFactoryResolver: ComponentFactoryResolver,
     private outletService: OutletService
   ) {
-    const factory = this.componenntFactoryResolver.resolveComponentFactory(
-      TestSpartacusComponent
-    );
-    this.outletService.add('SiteLogo', factory, OutletPosition.AFTER);
+    // const factory = this.componenntFactoryResolver.resolveComponentFactory(
+    //   TestSpartacusComponent
+    // );
+    // this.outletService.add('SiteLogo', factory, OutletPosition.AFTER);
   }
   changeValue() {
     this.value = this.value + 1;

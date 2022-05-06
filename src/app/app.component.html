@@ -6,10 +6,9 @@
 <button (click)="toggle()">open/close</button>
  -->
 
-<ng-template cxOutletRef="SiteLogo" cxOutletPos="after">
-  <h1 (click)="toggle()">amazona</h1>
-  <img src="../favicon.ico" alt="icon" />
+<ng-template cxOutletRef="SiteLogo">
+  <h1>amazona</h1>
 </ng-template>
-<ng-template cxOutletRef="header" let-model> </ng-template>
+<!-- <ng-template cxOutletRef="header" let-model> </ng-template> -->
 
 <cx-storefront></cx-storefront>
