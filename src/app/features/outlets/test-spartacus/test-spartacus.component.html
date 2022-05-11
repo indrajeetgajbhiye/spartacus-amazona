@@ -2,3 +2,7 @@
   {{ quantity }}
 </button>
 <button class="btn btn-primary">{{ total$ | async }}</button>
+
+<a [routerLink]="['/', 'product', '300938']">without capmpaign</a>
+
+<a [routerLink]="['/', 'sale', 'product', '300938']">with capmpaign</a>

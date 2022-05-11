@@ -7,14 +7,16 @@ import { translations, translationChunksConfig } from '@spartacus/assets';
 import { B2cStorefrontModule } from '@spartacus/storefront';
 import { LayoutConfigModule } from './layout-config/layout-config.module';
 import { OutletsModule } from './features/outlets/outlets.module';
+import { SpartacusConfigModule } from './config/spartacus-config/spartacus-config.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     // LayoutConfigModule,
     OutletsModule,
+    SpartacusConfigModule,
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
