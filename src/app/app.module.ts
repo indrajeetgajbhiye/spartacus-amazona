@@ -5,9 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { translations, translationChunksConfig } from '@spartacus/assets';
 import { B2cStorefrontModule } from '@spartacus/storefront';
-import { LayoutConfigModule } from './layout-config/layout-config.module';
+
 import { OutletsModule } from './features/outlets/outlets.module';
 import { SpartacusConfigModule } from './config/spartacus-config/spartacus-config.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { ProductListModule } from './features/product-list/product-list.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +20,7 @@ import { SpartacusConfigModule } from './config/spartacus-config/spartacus-confi
     // LayoutConfigModule,
     OutletsModule,
     SpartacusConfigModule,
+    ProductListModule,
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
@@ -37,8 +41,13 @@ import { SpartacusConfigModule } from './config/spartacus-config/spartacus-confi
         level: '3.0',
       },
     }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

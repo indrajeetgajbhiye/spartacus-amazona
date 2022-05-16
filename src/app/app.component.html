@@ -1,16 +1,19 @@
 <!-- <app-outlets> </app-outlets> -->
 
-<!-- <app-test-spartacus [value]="value" *ngIf="show"></app-test-spartacus>
+<!-- <app-test-spartacus
+  [valuechild]="value"
+  *ngIf="show"
+  (valueChanged)="changesInValueChild($event)"
+></app-test-spartacus>
 
 <button (click)="changeValue()">value changed</button>
 <button (click)="toggle()">open/close</button>
- -->
 
 <ng-template cxOutletRef="SiteLogo">
   <a routerLink="/">
     <h1>amazona</h1>
   </a>
-</ng-template>
+</ng-template> -->
 <!-- <ng-template cxOutletRef="header" let-model> </ng-template> -->
 
 <cx-storefront></cx-storefront>

@@ -29,4 +29,7 @@ export class AppComponent {
     console.log('toggle');
     this.show = !this.show;
   }
+  changesInValueChild(event) {
+    console.log('current value in parent is', event);
+  }
 }

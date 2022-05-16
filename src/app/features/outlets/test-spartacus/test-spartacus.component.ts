@@ -1,9 +1,11 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { MiniCartComponent } from '@spartacus/storefront';
@@ -17,8 +19,8 @@ export class TestSpartacusComponent
   extends MiniCartComponent
   implements OnInit, OnChanges, OnDestroy
 {
-  @Input() value;
-
+  @Input() valuechild;
+  @Output() valueChanged = new EventEmitter();
   ngOnInit(): void {
     console.log('its called second and once');
     this.quantity$.subscribe((data) => {
@@ -28,6 +30,7 @@ export class TestSpartacusComponent
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('its called first and on every value change', changes);
+    this.valueChanged.emit(changes.valuechild.currentValue);
   }
 
   ngOnDestroy(): void {
