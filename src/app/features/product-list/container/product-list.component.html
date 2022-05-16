@@ -17,6 +17,19 @@
                   ></cx-sorting>
                 </div>
               </div>
+
+              <!-- <select name="" id="" (change)="setPageSize($event.target.value)">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select> -->
+              <button (click)="resetAll()">Reset All</button>
+
+              <button (click)="goToFirstPage()">Go To First Page</button>
+              <button (click)="goToLastPage(model.pagination)">
+                Go To Last Page
+              </button>
+
               <div *ngIf="!isInfiniteScroll" class="col-auto">
                 <div
                   class="cx-pagination"

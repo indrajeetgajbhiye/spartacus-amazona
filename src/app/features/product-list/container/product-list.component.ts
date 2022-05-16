@@ -50,7 +50,22 @@ export class ProductListComponent implements OnInit, OnDestroy {
   setViewMode(mode: ViewModes): void {
     this.viewMode$.next(mode);
   }
+  setPageSize(pageSize) {
+    console.log(pageSize);
+    this.productListComponentService.changePageSize(pageSize);
+  }
 
+  goToLastPage(pagination) {
+    this.productListComponentService.goToPageNumber(pagination.totalPages - 1);
+  }
+
+  goToFirstPage() {
+    this.productListComponentService.goToPageNumber(0);
+  }
+
+  resetAll() {
+    this.productListComponentService.resetAll();
+  }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

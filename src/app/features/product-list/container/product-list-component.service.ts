@@ -50,11 +50,10 @@ export class ProductListComponentService {
    * The `searchResults$` is _not_ concerned with querying, it only observes the
    * `productSearchService.getResults()`
    */
-  protected searchResults$: Observable<
-    ProductSearchPage
-  > = this.productSearchService
-    .getResults()
-    .pipe(filter((searchResult) => Object.keys(searchResult).length > 0));
+  protected searchResults$: Observable<ProductSearchPage> =
+    this.productSearchService
+      .getResults()
+      .pipe(filter((searchResult) => Object.keys(searchResult).length > 0));
 
   /**
    * Observes the route and performs a search on each route change.
@@ -62,28 +61,27 @@ export class ProductListComponentService {
    * Context changes, such as language and currencies are also taken
    * into account, so that the search is performed again.
    */
-  protected searchByRouting$: Observable<
-    ActivatedRouterStateSnapshot
-  > = combineLatest([
-    this.routing.getRouterState().pipe(
-      distinctUntilChanged((x, y) => {
-        // router emits new value also when the anticipated `nextState` changes
-        // but we want to perform search only when current url changes
-        return x.state.url === y.state.url;
+  protected searchByRouting$: Observable<ActivatedRouterStateSnapshot> =
+    combineLatest([
+      this.routing.getRouterState().pipe(
+        distinctUntilChanged((x, y) => {
+          // router emits new value also when the anticipated `nextState` changes
+          // but we want to perform search only when current url changes
+          return x.state.url === y.state.url;
+        })
+      ),
+      ...this.siteContext,
+    ]).pipe(
+      debounceTime(0),
+      map(([routerState, ..._context]) => (routerState as RouterState).state),
+      tap((state: ActivatedRouterStateSnapshot) => {
+        const criteria = this.getCriteriaFromRoute(
+          state.params,
+          state.queryParams
+        );
+        this.search(criteria);
       })
-    ),
-    ...this.siteContext,
-  ]).pipe(
-    debounceTime(0),
-    map(([routerState, ..._context]) => (routerState as RouterState).state),
-    tap((state: ActivatedRouterStateSnapshot) => {
-      const criteria = this.getCriteriaFromRoute(
-        state.params,
-        state.queryParams
-      );
-      this.search(criteria);
-    })
-  );
+    );
 
   /**
    * This stream is used for the Product Listing and Product Facets.
@@ -188,6 +186,13 @@ export class ProductListComponentService {
     this.route({ sortCode });
   }
 
+  changePageSize(pageSize: any): void {
+    this.route({ pageSize });
+  }
+
+  goToPageNumber(currentPage: any): void {
+    this.route({ currentPage });
+  }
   /**
    * Routes to the next product listing page, using the given `queryParams`. The
    * `queryParams` support sorting, pagination and querying.
@@ -202,6 +207,9 @@ export class ProductListComponentService {
     });
   }
 
+  resetAll(): void {
+    this.router.navigate([], { relativeTo: this.activatedRoute });
+  }
   /**
    * The site context is used to update the search query in case of a
    * changing context. The context will typically influence the search data.
