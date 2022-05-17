@@ -11,6 +11,7 @@ import { SpartacusConfigModule } from './config/spartacus-config/spartacus-confi
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ProductListModule } from './features/product-list/product-list.module';
+import { ProductOccConfigModule } from './config/occ/product-occ-config/product-occ-config.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { ProductListModule } from './features/product-list/product-list.module';
     OutletsModule,
     SpartacusConfigModule,
     ProductListModule,
+    ProductOccConfigModule,
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
