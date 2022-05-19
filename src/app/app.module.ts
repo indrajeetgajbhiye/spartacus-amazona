@@ -12,13 +12,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ProductListModule } from './features/product-list/product-list.module';
 import { ProductOccConfigModule } from './config/occ/product-occ-config/product-occ-config.module';
+import { LayoutConfigModule } from './layout-config/layout-config.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // LayoutConfigModule,
+    LayoutConfigModule,
     OutletsModule,
     SpartacusConfigModule,
     ProductListModule,

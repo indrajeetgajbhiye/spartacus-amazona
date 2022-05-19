@@ -11,7 +11,15 @@ export const layoutConfig: LayoutConfig = {
   layoutSlots: {
     header: {
       lg: {
-        slots: ['PreHeader', 'SiteLogo', 'SearchBox', 'SiteLogin', 'MiniCart'],
+        slots: [
+          // 'PreHeader',
+          // 'SiteContext',
+          // 'SiteLinks',
+          'SiteLogo',
+          'SearchBox',
+          'MiniCart',
+          'SiteLogin',
+        ],
       },
       slots: ['PreHeader', 'SiteLogo', 'SearchBox', 'MiniCart'],
     },

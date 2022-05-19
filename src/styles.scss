@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-$styleVersion: 3.0;
-@import '~@spartacus/styles/index';
+$styleVersion: 3;
+@import "~@spartacus/styles/index";
+
+header:not(.is-expanded) cx-page-layout.navigation {
+  display: block !important;
+}
+header .header {
+  max-width: 100%;
+  width: 100%;
+  background-color: #232f3e;
+}
+.NavigationBar {
+  background-color: #37475a;
+}
+cx-anonymous-consent-open-dialog,
+cx-footer-navigation {
+  display: none;
+}

@@ -10,13 +10,13 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    ConfigModule.withConfig(<CmsConfig>{
-      cmsComponents: {
-        FooterNavigationComponent: {
-          component: TestSpartacusComponent,
-        },
-      },
-    }),
+    // ConfigModule.withConfig(<CmsConfig>{
+    //   cmsComponents: {
+    //     FooterNavigationComponent: {
+    //       component: TestSpartacusComponent,
+    //     },
+    //   },
+    // }),
   ],
   providers: [],
   exports: [OutletsComponent, TestSpartacusComponent],
