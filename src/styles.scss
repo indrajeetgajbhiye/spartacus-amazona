@@ -9,12 +9,69 @@ header:not(.is-expanded) cx-page-layout.navigation {
 header .header {
   max-width: 100%;
   width: 100%;
+  //   background-color: #fff;
+  //   background-color: red;
+  //   background-color: blue;
+  //   //   background-color: black;
   background-color: #232f3e;
 }
-.NavigationBar {
-  background-color: #37475a;
+header {
+  .NavigationBar {
+    background-color: #37475a;
+    height: 40px;
+    min-height: 40px;
+  }
 }
 cx-anonymous-consent-open-dialog,
 cx-footer-navigation {
   display: none;
+}
+header .SiteLogo {
+  width: auto;
+  a {
+    color: white;
+  }
+}
+cx-searchbox {
+  label {
+    background: white;
+    color: black;
+    border-radius: 6px;
+  }
+}
+cx-mini-cart {
+  a {
+    background: transparent;
+    position: relative;
+    span {
+      position: absolute;
+      left: 40px;
+      top: 0px;
+      background: blue;
+      border-radius: 50%;
+      min-width: 26px;
+      width: fit-content;
+      display: flex;
+      align-self: center;
+    }
+  }
+}
+
+cx-navigation-ui.flyout > nav > h5 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+cx-navigation-ui > nav > cx-generic-link > a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.navigation {
+  .NavigationBar {
+    cx-category-navigation {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+    }
+  }
 }

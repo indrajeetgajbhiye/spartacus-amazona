@@ -21,11 +21,14 @@ export const layoutConfig: LayoutConfig = {
           'SiteLogin',
         ],
       },
+      sm: {
+        slots: ['NavigationBar'],
+      },
       slots: ['PreHeader', 'SiteLogo', 'SearchBox', 'MiniCart'],
     },
     navigation: {
       lg: { slots: ['NavigationBar'] },
-      slots: ['SiteLogin', 'NavigationBar', 'SiteContext', 'SiteLinks'],
+      slots: ['SiteLogin', 'NavigationBar'],
     },
     footer: {
       slots: ['Footer'],
