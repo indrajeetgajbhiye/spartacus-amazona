@@ -1,6 +1,6 @@
 import { Company, CompanyActions } from './campany.actions';
 
-const initialState = { company: '' };
+const initialState = { company: 'Innovation' };
 
 export function companyReducer(state = initialState, action: CompanyActions) {
   switch (action.type) {

@@ -1,5 +1,5 @@
-import { ComapnyService } from './../../../store/company/company.service';
 import { Component } from '@angular/core';
+import { CompanyService } from 'src/app/store/company/company.service';
 @Component({
   selector: 'app-test-spartacus',
   templateUrl: './test-spartacus.component.html',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class TestSpartacusComponent {
   companies = ['IBM', 'APPLE', 'Microsoft', 'Google', 'META', 'AMAZON'];
 
-  constructor(private comapnyService: ComapnyService) {}
+  constructor(private comapnyService: CompanyService) {}
 
   selectCompany(companyName: string) {
     this.comapnyService.addCompany(companyName);
