@@ -1,3 +1,4 @@
+import { SearchBoxModule } from './features/search-box/search-box.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
@@ -10,9 +11,12 @@ import { OutletsModule } from './features/outlets/outlets.module';
 import { SpartacusConfigModule } from './config/spartacus-config/spartacus-config.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { ProductListModule } from './features/product-list/product-list.module';
+// import { ProductListModule } from './features/product-list/product-list.module';
 import { ProductOccConfigModule } from './config/occ/product-occ-config/product-occ-config.module';
 import { LayoutConfigModule } from './layout-config/layout-config.module';
+import { StoreModule } from '@ngrx/store';
+import { Effects, Stores } from './store/global.store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +26,11 @@ import { LayoutConfigModule } from './layout-config/layout-config.module';
     LayoutConfigModule,
     OutletsModule,
     SpartacusConfigModule,
-    ProductListModule,
-    ProductOccConfigModule,
+    // ProductListModule,
+    // ProductOccConfigModule,
+    // SearchBoxModule,
+    StoreModule.forRoot(Stores),
+    EffectsModule.forRoot(Effects),
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {

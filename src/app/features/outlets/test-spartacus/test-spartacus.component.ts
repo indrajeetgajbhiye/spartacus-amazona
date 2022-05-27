@@ -1,39 +1,16 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { MiniCartComponent } from '@spartacus/storefront';
-
+import { ComapnyService } from './../../../store/company/company.service';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-test-spartacus',
   templateUrl: './test-spartacus.component.html',
   styleUrls: ['./test-spartacus.component.scss'],
 })
-export class TestSpartacusComponent
-  extends MiniCartComponent
-  implements OnInit, OnChanges, OnDestroy
-{
-  @Input() valuechild;
-  @Output() valueChanged = new EventEmitter();
-  ngOnInit(): void {
-    console.log('its called second and once');
-    this.quantity$.subscribe((data) => {
-      console.log('its called second and once', data);
-    });
-  }
+export class TestSpartacusComponent {
+  companies = ['IBM', 'APPLE', 'Microsoft', 'Google', 'META', 'AMAZON'];
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('its called first and on every value change', changes);
-    this.valueChanged.emit(changes.valuechild.currentValue);
-  }
+  constructor(private comapnyService: ComapnyService) {}
 
-  ngOnDestroy(): void {
-    console.log('its called last');
+  selectCompany(companyName: string) {
+    this.comapnyService.addCompany(companyName);
   }
 }
